@@ -1,0 +1,27 @@
+# cpp
+*.o
+
+# assets
+*.obj
+*.lib
+
+# build
+*.exe
+build/
+Build/
+build-*/
+
+# cmake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+compile_commands.json
+
+# temp
+.cache/
+
+# data
+data/
+assets/skybox

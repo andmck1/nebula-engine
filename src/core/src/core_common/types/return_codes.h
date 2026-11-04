@@ -1,0 +1,5 @@
+enum APPLICATION_RETURN
+{
+    SUCCESS = 0,
+    UNSUPPORTED = -1
+};
