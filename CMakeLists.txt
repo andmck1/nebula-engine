@@ -24,6 +24,13 @@ FetchContent_Declare(
   GIT_TAG v1.17.0)
 FetchContent_MakeAvailable(spdlog)
 
+FetchContent_Declare(
+    glfw
+    GIT_REPOSITORY https://github.com/glfw/glfw.git
+    GIT_TAG 3.5.1
+)
+FetchContent_MakeAvailable(glfw)
+
 
 # Sub CMake files
 add_subdirectory(src/core)
