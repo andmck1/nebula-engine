@@ -2,6 +2,9 @@ add_library(
     nebula-engine-core
     STATIC
     src/core_common/types/return_codes.cpp
+    src/core_common/services/logging/iloggerservice.cpp
+    src/core_common/services/logging/consolelogger.cpp
+    src/core_common/services/servicelocator.cpp
 )
 
 # publicly make the src directory of this library (eg. can include with core_common/)
