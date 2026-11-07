@@ -1,5 +1,8 @@
 #pragma once
 
+#include "core_common/services/platform/iinputservice.h"
+#include <memory>
+
 class IPlatformService
 {
     public:
@@ -9,4 +12,6 @@ class IPlatformService
     virtual void pollEvents() = 0;
     virtual void shutdown() = 0;
     virtual bool isExitRequested() = 0;
+
+    std::unique_ptr<IInputService> input;
 };

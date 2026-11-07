@@ -8,6 +8,7 @@ add_library(
     src/core_common/services/platform/iplatformservice.cpp
     src/core_common/services/platform/linux.cpp
     src/core_common/services/platform/windowglfw.cpp
+    src/core_common/services/platform/iinputservice.cpp
     src/core_common/services/platform/inputglfw.cpp
 )
 

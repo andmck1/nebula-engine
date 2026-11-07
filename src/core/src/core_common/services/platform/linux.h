@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core_common/services/platform/inputglfw.h"
+#include "core_common/services/platform/iinputservice.h"
 #include "core_common/services/platform/iplatformservice.h"
 #include "core_common/services/platform/windowglfw.h"
 
@@ -24,11 +24,11 @@ class PlatformLinux : public IPlatformService
     void pollEvents() override;
     void shutdown() override;
     bool isExitRequested() override;
+    std::unique_ptr<IInputService> input;
 
     private:
     PlatformConfig config_;
     std::unique_ptr<WindowGLFW> window_;
-    std::unique_ptr<InputGLFW> input_;
     // TODO - no way to check this through glfw?
     bool isGLFWInitialised;
 };

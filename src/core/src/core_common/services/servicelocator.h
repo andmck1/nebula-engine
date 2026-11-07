@@ -1,6 +1,8 @@
 #pragma once
 
 #include "core_common/services/logging/iloggerservice.h"
+#include "core_common/services/platform/iplatformservice.h"
+#include "core_common/services/platform/iinputservice.h"
 
 #include <typeindex>
 #include <unordered_map>
@@ -10,6 +12,12 @@ class ServiceLocator
     public:
     static ILoggerService *GetLoggingService();
     static void SetLoggingService(ILoggerService *loggingService);
+
+    static IPlatformService *GetPlatformService();
+    static void SetPlatformService(IPlatformService *platformService);
+
+    static IInputService *GetInputService();
+    static void SetInputService(IInputService *inputService);
 
     private:
     // TODO - technically this is restricted to certain types only

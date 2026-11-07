@@ -33,4 +33,6 @@ void Application::initPlatform()
     };
     platform_ = std::make_unique<PlatformLinux>(config);
     platform_->createWindow();
+    ServiceLocator::SetPlatformService(platform_.get());
+    ServiceLocator::SetInputService(platform_->input.get());
 }

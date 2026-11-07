@@ -1,4 +1,5 @@
 #include "core_common/services/platform/linux.h"
+#include "core_common/services/platform/inputglfw.h"
 #include "core_common/services/servicelocator.h"
 
 #include <GLFW/glfw3.h>
@@ -53,7 +54,7 @@ void PlatformLinux::createWindow()
         ServiceLocator::GetLoggingService()->error("Window creation failed");
         return;
     }
-    input_ = std::make_unique<InputGLFW>();
+    input = std::make_unique<InputGLFW>();
     glfwSetKeyCallback(window_->window, InputGLFW::keyCallback);
 
     glfwShowWindow(window_->window);
@@ -78,7 +79,7 @@ bool PlatformLinux::isExitRequested()
 {
     if (glfwWindowShouldClose(window_->window))
         return true;
-    if (input_->isKeyPressed(KeyCode::Escape))
+    if (input->isKeyPressed(KeyCode::Escape))
         return true;
     return false;
 }
