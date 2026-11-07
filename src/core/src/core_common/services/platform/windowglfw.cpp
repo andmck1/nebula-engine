@@ -4,7 +4,7 @@
 
 WindowGLFW::WindowGLFW(uint32_t width, uint32_t height, const char *title)
 {
-    ServiceLocator::GetLoggingService()->info(
+    ServiceLocator::GetLoggingService()->debug(
         std::format("Creating GLFW window: {}x{} '{}'", width, height, title)
     );
     window = glfwCreateWindow(
@@ -17,7 +17,7 @@ WindowGLFW::WindowGLFW(uint32_t width, uint32_t height, const char *title)
         return;
     }
 
-    ServiceLocator::GetLoggingService()->info("GLFW window created");
+    ServiceLocator::GetLoggingService()->debug("GLFW window created");
     glfwSetWindowCloseCallback(window, closeCallback);
     glfwMakeContextCurrent(window);
 }
@@ -36,7 +36,7 @@ void WindowGLFW::shutdown()
 {
     if (window)
     {
-        ServiceLocator::GetLoggingService()->info("Destroying GLFW window");
+        ServiceLocator::GetLoggingService()->debug("Destroying GLFW window");
         glfwDestroyWindow(window);
         window = nullptr;
     }

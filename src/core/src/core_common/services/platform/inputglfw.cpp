@@ -5,7 +5,7 @@ InputGLFW::InputGLFW()
 {
     // TODO - should input be a service?
     instance_ = this;
-    ServiceLocator::GetLoggingService()->info("Input system initialised");
+    ServiceLocator::GetLoggingService()->debug("Input system initialised");
 }
 
 InputGLFW::~InputGLFW()

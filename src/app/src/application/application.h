@@ -4,17 +4,27 @@
 #include "core_common/services/platform/iplatformservice.h"
 #include "core_common/types/return_codes.h"
 
+#include <CLI/CLI.hpp>
+
 #include <memory>
 #include <string>
+
+struct ApplicationSettings
+{
+    bool isDebugEnabled_ = false;
+};
 
 class Application
 {
     public:
-    bool run();
+    bool run(int argc, char *argv[]);
 
     private:
+    void processCLI(int argc, char *argv[]);
     void initLogging();
     void initPlatform();
+
+    ApplicationSettings settings_{};
 
     std::string name_ = "NebulaEngine";
 

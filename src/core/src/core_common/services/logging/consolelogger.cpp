@@ -1,5 +1,6 @@
 #include "core_common/services/logging/consolelogger.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+#include <format>
 
 ConsoleLogger::ConsoleLogger(std::string loggerName)
 {
@@ -26,4 +27,17 @@ void ConsoleLogger::warning(std::string message)
 void ConsoleLogger::error(std::string message)
 {
     logger_->error(message);
+}
+
+void ConsoleLogger::setLevel(LoggingLevel level)
+{
+    auto spdlogLevelMapIterator = spdlogLevelMap.find(level);
+    if (spdlogLevelMapIterator != spdlogLevelMap.end())
+    {
+        logger_->set_level(spdlogLevelMapIterator->second);
+        return;
+    }
+    warning(
+        std::format("Unable to set log level to: {}", static_cast<int>(level))
+    );
 }

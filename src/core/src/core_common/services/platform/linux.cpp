@@ -13,7 +13,7 @@ PlatformLinux::PlatformLinux(const PlatformConfig config)
     if (glfwInit())
     {
         isGLFWInitialised = true;
-        ServiceLocator::GetLoggingService()->info(
+        ServiceLocator::GetLoggingService()->debug(
             "GLFW initialised successfully"
         );
         return;
@@ -34,12 +34,6 @@ void PlatformLinux::createWindow()
         return;
     }
 
-    ServiceLocator::GetLoggingService()->info(
-        std::format(
-            "Creating window: {}x{} titled '{}'", config_.window_width,
-            config_.window_height, config_.window_title
-        )
-    );
     glfwWindowHint(GLFW_VISIBLE, GLFW_TRUE);
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
@@ -58,7 +52,7 @@ void PlatformLinux::createWindow()
     glfwSetKeyCallback(window_->window, InputGLFW::keyCallback);
 
     glfwShowWindow(window_->window);
-    ServiceLocator::GetLoggingService()->info("Window created and shown");
+    ServiceLocator::GetLoggingService()->debug("Window created and shown");
 }
 
 void PlatformLinux::pollEvents()
@@ -68,11 +62,11 @@ void PlatformLinux::pollEvents()
 
 void PlatformLinux::shutdown()
 {
-    ServiceLocator::GetLoggingService()->info("Platform shutting down");
+    ServiceLocator::GetLoggingService()->debug("Platform shutting down");
     if (window_)
         window_->shutdown();
     glfwTerminate();
-    ServiceLocator::GetLoggingService()->info("Platform shut down complete");
+    ServiceLocator::GetLoggingService()->debug("Platform shut down complete");
 }
 
 bool PlatformLinux::isExitRequested()
