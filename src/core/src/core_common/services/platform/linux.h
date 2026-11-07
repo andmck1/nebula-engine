@@ -3,10 +3,12 @@
 #include "core_common/services/platform/iinputservice.h"
 #include "core_common/services/platform/iplatformservice.h"
 #include "core_common/services/platform/windowglfw.h"
+#include "namespaces.h"
 
 #include <memory>
 #include <string>
 
+NS_NEBULA_CORE_BEGIN
 struct PlatformConfig
 {
     std::string window_title = "Nebula Engine";
@@ -32,3 +34,4 @@ class PlatformLinux : public IPlatformService
     // TODO - no way to check this through glfw?
     bool isGLFWInitialised;
 };
+NS_NEBULA_CORE_END

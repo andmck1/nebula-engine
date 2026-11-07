@@ -2,6 +2,7 @@
 #include "core_common/services/servicelocator.h"
 #include <format>
 
+NS_NEBULA_CORE_BEGIN
 WindowGLFW::WindowGLFW(uint32_t width, uint32_t height, const char *title)
 {
     ServiceLocator::GetLoggingService()->debug(
@@ -46,3 +47,4 @@ void WindowGLFW::closeCallback(GLFWwindow *window)
 {
     glfwSetWindowShouldClose(window, GLFW_TRUE);
 }
+NS_NEBULA_CORE_END

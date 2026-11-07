@@ -3,8 +3,8 @@
 #include "core_common/services/servicelocator.h"
 
 #include <GLFW/glfw3.h>
-#include <format>
 
+NS_NEBULA_CORE_BEGIN
 PlatformLinux::PlatformLinux(const PlatformConfig config)
 {
     config_ = config;
@@ -77,3 +77,4 @@ bool PlatformLinux::isExitRequested()
         return true;
     return false;
 }
+NS_NEBULA_CORE_END

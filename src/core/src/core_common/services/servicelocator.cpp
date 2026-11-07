@@ -1,5 +1,6 @@
 #include "core_common/services/servicelocator.h"
 
+NS_NEBULA_CORE_BEGIN
 ILoggerService *ServiceLocator::GetLoggingService()
 {
     return ServiceLocator::get<ILoggerService>();
@@ -28,3 +29,5 @@ void ServiceLocator::SetInputService(IInputService *inputService)
 {
     services_[typeid(IInputService)] = inputService;
 }
+
+NS_NEBULA_CORE_END

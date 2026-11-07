@@ -1,5 +1,6 @@
 #pragma once
 
+#include "namespaces.h"
 #include "core_common/services/logging/iloggerservice.h"
 
 #include <memory>
@@ -7,6 +8,7 @@
 #include <string>
 #include <unordered_map>
 
+NS_NEBULA_CORE_BEGIN
 static inline std::unordered_map<LoggingLevel, spdlog::level::level_enum>
     spdlogLevelMap = {
         {LoggingLevel::DEBUG, spdlog::level::level_enum::debug},
@@ -31,3 +33,4 @@ class ConsoleLogger : public ILoggerService
     std::string loggerName_;
     std::unique_ptr<spdlog::logger> logger_;
 };
+NS_NEBULA_CORE_END

@@ -1,7 +1,9 @@
 #pragma once
 
+#include "namespaces.h"
 #include <GLFW/glfw3.h>
 
+NS_NEBULA_CORE_BEGIN
 class WindowGLFW
 {
     public:
@@ -16,3 +18,4 @@ class WindowGLFW
     private:
     static void closeCallback(GLFWwindow *);
 };
+NS_NEBULA_CORE_END

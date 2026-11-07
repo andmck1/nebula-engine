@@ -1,6 +1,7 @@
 #include "core_common/services/platform/inputglfw.h"
 #include "core_common/services/servicelocator.h"
 
+NS_NEBULA_CORE_BEGIN
 InputGLFW::InputGLFW()
 {
     // TODO - should input be a service?
@@ -37,3 +38,4 @@ void InputGLFW::keyCallback(GLFWwindow *, int key, int, int action, int)
         instance_->keyStates_[keyCode] = false;
     }
 }
+NS_NEBULA_CORE_END

@@ -2,6 +2,7 @@
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include <format>
 
+NS_NEBULA_CORE_BEGIN
 ConsoleLogger::ConsoleLogger(std::string loggerName)
 {
     loggerName_ = loggerName;
@@ -41,3 +42,4 @@ void ConsoleLogger::setLevel(LoggingLevel level)
         std::format("Unable to set log level to: {}", static_cast<int>(level))
     );
 }
+NS_NEBULA_CORE_END

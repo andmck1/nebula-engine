@@ -17,7 +17,7 @@ struct ApplicationSettings
 class Application
 {
     public:
-    bool run(int argc, char *argv[]);
+    Nebula::Core::ReturnCode run(int argc, char *argv[]);
 
     private:
     void processCLI(int argc, char *argv[]);
@@ -29,6 +29,6 @@ class Application
     std::string name_ = "NebulaEngine";
 
     // services
-    std::unique_ptr<ILoggerService> logger_;
-    std::unique_ptr<IPlatformService> platform_;
+    std::unique_ptr<Nebula::Core::ILoggerService> logger_;
+    std::unique_ptr<Nebula::Core::IPlatformService> platform_;
 };

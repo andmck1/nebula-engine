@@ -5,7 +5,7 @@
 #include "core_common/services/platform/linux.h"
 #include "core_common/services/servicelocator.h"
 
-bool Application::run(int argc, char *argv[])
+Nebula::Core::ReturnCode Application::run(int argc, char *argv[])
 {
     processCLI(argc, argv);
 
@@ -17,7 +17,7 @@ bool Application::run(int argc, char *argv[])
     {
         platform_->pollEvents();
     }
-    return true;
+    return Nebula::Core::ReturnCode::SUCCESS;
 }
 
 void Application::processCLI(int argc, char *argv[])
@@ -32,29 +32,29 @@ void Application::processCLI(int argc, char *argv[])
 
 void Application::initLogging()
 {
-    logger_ = std::make_unique<ConsoleLogger>(name_);
+    logger_ = std::make_unique<Nebula::Core::ConsoleLogger>(name_);
     if (settings_.isDebugEnabled_)
     {
-        logger_->setLevel(LoggingLevel::DEBUG);
+        logger_->setLevel(Nebula::Core::LoggingLevel::DEBUG);
         logger_->debug("Logging level set to DEBUG");
     }
     else
     {
-        logger_->setLevel(LoggingLevel::INFO);
+        logger_->setLevel(Nebula::Core::LoggingLevel::INFO);
         logger_->info("Logging level set to INFO");
     }
-    ServiceLocator::SetLoggingService(logger_.get());
+    Nebula::Core::ServiceLocator::SetLoggingService(logger_.get());
 }
 
 void Application::initPlatform()
 {
-    PlatformConfig config = {
+    Nebula::Core::PlatformConfig config = {
         "Nebula Engine Demo",
         1280,
         720,
     };
-    platform_ = std::make_unique<PlatformLinux>(config);
+    platform_ = std::make_unique<Nebula::Core::PlatformLinux>(config);
     platform_->createWindow();
-    ServiceLocator::SetPlatformService(platform_.get());
-    ServiceLocator::SetInputService(platform_->input.get());
+    Nebula::Core::ServiceLocator::SetPlatformService(platform_.get());
+    Nebula::Core::ServiceLocator::SetInputService(platform_->input.get());
 }

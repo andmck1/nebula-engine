@@ -1,8 +1,10 @@
 #pragma once
 
 #include "core_common/services/platform/iinputservice.h"
+#include "namespaces.h"
 #include <memory>
 
+NS_NEBULA_CORE_BEGIN
 class IPlatformService
 {
     public:
@@ -15,3 +17,4 @@ class IPlatformService
 
     std::unique_ptr<IInputService> input;
 };
+NS_NEBULA_CORE_END
