@@ -18,3 +18,7 @@ target_include_directories(nebula-engine-core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 # needs to public here for some reason
 target_link_libraries(nebula-engine-core PUBLIC spdlog::spdlog glfw)
 
+if(NEBULA_BUILD_TESTS)
+    add_subdirectory(tests)
+endif()
+

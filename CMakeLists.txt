@@ -15,6 +15,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # Gives compile_commands.json for LSP
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Testing
+option(NEBULA_BUILD_TESTS "Build test executables" ON)
+
 # Dependencies
 include(FetchContent)
 
@@ -38,6 +41,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(cli11)
 
+if(NEBULA_BUILD_TESTS)
+    FetchContent_Declare(
+        doctest
+      GIT_REPOSITORY https://github.com/doctest/doctest.git
+      GIT_TAG v2.5.3)
+    FetchContent_MakeAvailable(doctest)
+    include(${doctest_SOURCE_DIR}/scripts/cmake/doctest.cmake)
+    enable_testing()
+endif()
 
 # Sub CMake files
 add_subdirectory(src/core)
