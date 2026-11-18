@@ -29,5 +29,4 @@ void ServiceLocator::SetInputService(IInputService *inputService)
 {
     services_[typeid(IInputService)] = inputService;
 }
-
 NS_NEBULA_CORE_END
