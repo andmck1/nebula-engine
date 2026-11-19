@@ -6,10 +6,10 @@
 NS_NEBULA_CORE_BEGIN
 enum LoggingLevel
 {
-    DEBUG = 0,
-    INFO = 1,
-    WARNING = 2,
-    ERROR = 3,
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR,
 };
 
 class ILoggerService
@@ -22,6 +22,10 @@ class ILoggerService
     virtual void warning(std::string message) = 0;
     virtual void error(std::string message) = 0;
 
+    virtual LoggingLevel getLevel() = 0;
     virtual void setLevel(LoggingLevel level) = 0;
+    
+    protected:
+    LoggingLevel level_ = LoggingLevel::INFO;
 };
 NS_NEBULA_CORE_END

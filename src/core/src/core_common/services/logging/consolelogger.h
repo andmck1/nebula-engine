@@ -26,7 +26,8 @@ class ConsoleLogger : public ILoggerService
     void info(std::string message) override;
     void warning(std::string message) override;
     void error(std::string message) override;
-
+    
+    LoggingLevel getLevel() override;
     void setLevel(LoggingLevel level) override;
 
     private:

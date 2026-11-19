@@ -30,8 +30,14 @@ void ConsoleLogger::error(std::string message)
     logger_->error(message);
 }
 
+LoggingLevel ConsoleLogger::getLevel()
+{
+    return level_;
+}
+
 void ConsoleLogger::setLevel(LoggingLevel level)
 {
+    level_ = level;
     auto spdlogLevelMapIterator = spdlogLevelMap.find(level);
     if (spdlogLevelMapIterator != spdlogLevelMap.end())
     {

@@ -2,7 +2,7 @@
 - This is a graphics application built in C++20 using Vulkan for Linux.
 
 # Developer Instructions
-- Never make edits or build
+- Never make edits
 - Always check the top level file structure and recursive file structure in src/ first using `ls`. 
 - Always check for available packages in the root CMakeLists.txt
 - Never use auto where possible.
